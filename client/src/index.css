@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /*
+   * ========================================
+   * DRA. ADRIANA MACARI — PAIN SPECIALIST
+   * Paleta médica: confiança, alívio, autoridade
+   * ========================================
+   */
+
+  /* Primary: Teal médico — transmite calma e confiança */
+  --color-primary: #2B7A8E;
+  --color-primary-foreground: #FFFFFF;
+
+  /* Secondary: Azul-escuro profundo — autoridade médica */
+  --color-secondary: #1A3C4D;
+  --color-secondary-foreground: #FFFFFF;
+
+  /* Muted: Azul-acinzentado suave — fundo limpo */
+  --color-muted: #EFF5F7;
+  --color-muted-foreground: #3C3C3C;
+
+  /* Accent: Cinza elegante — footer e overlays */
+  --color-accent: #3A3A3A;
+  --color-accent-foreground: #FFFFFF;
+
+  /* Neutrals & Text */
+  --color-background: #FFFFFF;
+  --color-foreground: #1A1A1A;
+
+  --color-card: #FFFFFF;
+  --color-card-foreground: #3C3C3C;
+
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #1A1A1A;
+
+  /* Borders */
+  --color-border: #E8EDEF;
+  --color-input: #E8EDEF;
+  --color-ring: #2B7A8E;
+
+  /* Semantic */
+  --color-destructive: 0 84% 60%;
+  --color-destructive-foreground: 0 0% 100%;
+
+  /* Typography */
+  --font-sans: 'Montserrat', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  /* Spacing & Radius */
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold;
+  }
+  p {
+    @apply font-sans leading-relaxed text-[#3C3C3C];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-nav {
+    @apply bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm supports-[backdrop-filter]:bg-white/80;
+  }
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 max-w-7xl;
+  }
+  .bg-alt {
+    background-color: #EFF5F7;
+  }
+  .bg-neutral-gray {
+    background-color: #E8EDEF;
+  }
+}
