@@ -83,21 +83,11 @@ export default function About() {
             className="relative flex justify-center"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-sm">
-              <div
-                className="w-full h-[550px] flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #EFF5F7 0%, #2B7A8E 100%)" }}
-              >
-                <div className="text-center text-white p-8">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 flex items-center justify-center">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </div>
-                  <p className="text-lg font-medium opacity-80">Foto da Dra. Adriana</p>
-                  <p className="text-sm opacity-60 mt-2">Substituir por foto profissional</p>
-                </div>
-              </div>
+              <img
+                src="/draadriana.jpg"
+                alt="Dra. Adriana Macari"
+                className="w-full h-[550px] object-cover object-top"
+              />
             </div>
             <div className="absolute -bottom-6 -right-6 w-56 h-56 rounded-3xl -z-10" style={{ backgroundColor: "rgba(43, 122, 142, 0.1)" }} />
             <div className="absolute -top-6 -left-6 w-40 h-40 rounded-full -z-10" style={{ backgroundColor: "rgba(43, 122, 142, 0.1)" }} />
