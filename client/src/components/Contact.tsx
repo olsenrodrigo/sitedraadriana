@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Send, CheckCircle2, Loader2, MapPin, Phone, Mail } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", phone: "", painType: "", painDuration: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", painLocation: "", painDuration: "", previousTreatments: "", referralSource: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const WHATSAPP_URL = "https://wa.me/5500000000000";
@@ -14,12 +14,10 @@ export default function Contact() {
 
     setStatus("loading");
 
-    // Monta mensagem para WhatsApp
     const message = encodeURIComponent(
-      `Olá, gostaria de agendar uma consulta com a Dra. Adriana Macari.\n\nNome: ${formData.name}\nTelefone: ${formData.phone}\nTipo de dor: ${formData.painType || "Não informado"}\nTempo de dor: ${formData.painDuration || "Não informado"}`
+      `Olá, gostaria de agendar uma consulta com a Dra. Adriana Macari.\n\nNome: ${formData.name}\nTelefone: ${formData.phone}\nLocalização da dor: ${formData.painLocation || "Não informado"}\nTempo de dor: ${formData.painDuration || "Não informado"}\nTratamentos anteriores: ${formData.previousTreatments || "Nenhum"}\nComo chegou até mim: ${formData.referralSource || "Não informado"}`
     );
 
-    // Tenta enviar via API primeiro
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -28,17 +26,16 @@ export default function Contact() {
           name: formData.name,
           phone: formData.phone,
           email: "",
-          message: `Tipo de dor: ${formData.painType}. Tempo de dor: ${formData.painDuration}`,
+          message: `Localização da dor: ${formData.painLocation}. Tempo de dor: ${formData.painDuration}. Tratamentos anteriores: ${formData.previousTreatments}. Como chegou: ${formData.referralSource}`,
         }),
       });
       if (!res.ok) throw new Error("Erro ao enviar");
       setStatus("success");
-      setFormData({ name: "", phone: "", painType: "", painDuration: "" });
+      setFormData({ name: "", phone: "", painLocation: "", painDuration: "", previousTreatments: "", referralSource: "" });
     } catch {
-      // Fallback: redireciona para WhatsApp
       window.open(`${WHATSAPP_URL}?text=${message}`, "_blank");
       setStatus("success");
-      setFormData({ name: "", phone: "", painType: "", painDuration: "" });
+      setFormData({ name: "", phone: "", painLocation: "", painDuration: "", previousTreatments: "", referralSource: "" });
     }
   };
 
@@ -167,20 +164,21 @@ export default function Contact() {
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: "#1A1A1A" }}>Tipo de Dor</label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: "#1A1A1A" }}>Localização da Dor</label>
                       <select
-                        value={formData.painType}
-                        onChange={(e) => setFormData({ ...formData, painType: e.target.value })}
+                        value={formData.painLocation}
+                        onChange={(e) => setFormData({ ...formData, painLocation: e.target.value })}
                         className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:border-transparent transition-all outline-none bg-white"
                         style={{ borderColor: "rgba(43, 122, 142, 0.3)" }}
                       >
-                        <option value="">Selecione o tipo de dor</option>
-                        <option value="Dor nas costas / Lombalgia">Dor nas costas / Lombalgia</option>
-                        <option value="Dor de cabeça / Cefaleia">Dor de cabeça / Cefaleia</option>
-                        <option value="Dor neuropática">Dor neuropática</option>
-                        <option value="Dor crônica">Dor crônica</option>
-                        <option value="Dor pós-cirúrgica">Dor pós-cirúrgica</option>
-                        <option value="Outro tipo de dor">Outro tipo de dor</option>
+                        <option value="">Onde está a dor?</option>
+                        <option value="Coluna / Lombar">Coluna / Lombar</option>
+                        <option value="Cabeça / Pescoço">Cabeça / Pescoço</option>
+                        <option value="Membros superiores (braços)">Membros superiores (braços)</option>
+                        <option value="Membros inferiores (pernas)">Membros inferiores (pernas)</option>
+                        <option value="Abdômen / Pelve">Abdômen / Pelve</option>
+                        <option value="Generalizada">Generalizada</option>
+                        <option value="Outra localização">Outra localização</option>
                       </select>
                     </div>
 
@@ -201,6 +199,35 @@ export default function Contact() {
                         <option value="Mais de 5 anos">Mais de 5 anos</option>
                       </select>
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2" style={{ color: "#1A1A1A" }}>Tratamentos já realizados para a dor</label>
+                    <input
+                      type="text"
+                      value={formData.previousTreatments}
+                      onChange={(e) => setFormData({ ...formData, previousTreatments: e.target.value })}
+                      className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:border-transparent transition-all outline-none"
+                      style={{ borderColor: "rgba(43, 122, 142, 0.3)" }}
+                      placeholder="Ex: fisioterapia, medicamentos, cirurgia..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2" style={{ color: "#1A1A1A" }}>Como chegou até mim?</label>
+                    <select
+                      value={formData.referralSource}
+                      onChange={(e) => setFormData({ ...formData, referralSource: e.target.value })}
+                      className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:border-transparent transition-all outline-none bg-white"
+                      style={{ borderColor: "rgba(43, 122, 142, 0.3)" }}
+                    >
+                      <option value="">Selecione uma opção</option>
+                      <option value="Indicação médica">Indicação médica</option>
+                      <option value="Indicação de amigo ou familiar">Indicação de amigo ou familiar</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Google">Google</option>
+                      <option value="Outro">Outro</option>
+                    </select>
                   </div>
 
                   {status === "error" && (

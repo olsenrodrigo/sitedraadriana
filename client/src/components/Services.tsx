@@ -3,11 +3,14 @@ import { CheckCircle2, Stethoscope, Activity, Brain, Bone, Zap } from "lucide-re
 
 export default function Services() {
   const consultaItems = [
-    { icon: Brain, text: "Dor neuropática" },
-    { icon: Bone, text: "Lombalgia" },
-    { icon: Zap, text: "Cefaleia" },
-    { icon: Activity, text: "Dor crônica" },
-    { icon: Stethoscope, text: "Dor pós-cirúrgica" },
+    { icon: Activity, text: "Dor pós-operatória" },
+    { icon: Bone, text: "Dor lombar" },
+    { icon: Brain, text: "Dor oncológica" },
+    { icon: Zap, text: "Dores articulares" },
+    { icon: Stethoscope, text: "Dores de cabeça" },
+    { icon: Activity, text: "Dor por herpes zoster" },
+    { icon: Bone, text: "Dores musculares" },
+    { icon: Brain, text: "Dores neuropáticas" },
   ];
 
   const WHATSAPP_URL = "https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Adriana%20Macari.";
@@ -53,7 +56,7 @@ export default function Services() {
                 Consulta médica para diagnóstico da dor
               </h4>
               <p className="text-base mt-1" style={{ color: "#3C3C3C" }}>
-                Avaliação clínica detalhada para identificar a origem da dor e indicar o melhor tratamento.
+                Avaliação clínica detalhada para diagnóstico adequado da dor e indicação de tratamento individualizado.
               </p>
             </div>
           </div>
