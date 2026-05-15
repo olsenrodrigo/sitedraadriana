@@ -3,18 +3,15 @@ import { Syringe, ScanLine, Pill, ClipboardCheck, HeartPulse, Monitor, ShieldChe
 
 export default function Treatments() {
   const procedimentos = [
-    { icon: Syringe, text: "Bloqueios analgésicos" },
-    { icon: ScanLine, text: "Procedimentos guiados por imagem" },
-    { icon: Pill, text: "Toxina botulínica para dor" },
-    { icon: ClipboardCheck, text: "Avaliação pré-anestésica" },
+    { icon: Syringe, text: "Bloqueios analgésicos guiados por ultrassonografia" },
+    { icon: Pill, text: "Toxina botulínica para tratamento de dor" },
   ];
 
   const centroCirurgico = [
-    { icon: HeartPulse, text: "Acompanhamento anestésico em cirurgias" },
-    { icon: Monitor, text: "Monitorização intraoperatória" },
-    { icon: Pill, text: "Controle da dor no perioperatório" },
-    { icon: ShieldCheck, text: "Segurança anestésica baseada em protocolos" },
-    { icon: Users, text: "Suporte ao cirurgião e equipe médica" },
+    { icon: ClipboardCheck, text: "Avaliação pré-anestésica" },
+    { icon: HeartPulse, text: "Realização de anestesia para cirurgias" },
+    { icon: Monitor, text: "Controle da dor perioperatória" },
+    { icon: ShieldCheck, text: "Segurança e qualidade no atendimento ao paciente" },
   ];
 
   return (
@@ -57,7 +54,7 @@ export default function Treatments() {
               Procedimentos Intervencionistas
             </h4>
             <p className="text-sm mb-6" style={{ color: "#3C3C3C" }}>
-              Técnicas minimamente invasivas para alívio da dor
+              Técnicas médicas utilizadas para auxiliar no controle da dor, realizadas com segurança e precisão.
             </p>
             <div className="space-y-3">
               {procedimentos.map((item, index) => (
@@ -93,10 +90,10 @@ export default function Treatments() {
               <HeartPulse className="w-6 h-6 text-white" />
             </div>
             <h4 className="text-xl font-bold mb-2" style={{ color: "#1A1A1A" }}>
-              Acompanhamento Anestésico em Cirurgias
+              Acompanhamento anestésico
             </h4>
             <p className="text-sm mb-6" style={{ color: "#3C3C3C" }}>
-              Segurança e controle da dor durante todo o processo operatório
+              Atuação anestésica voltada à segurança, controle da dor e qualidade assistencial durante procedimentos cirúrgicos.
             </p>
             <div className="space-y-3">
               {centroCirurgico.map((item, index) => (

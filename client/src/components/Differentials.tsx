@@ -1,32 +1,31 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Stethoscope, BookOpen, Heart, GraduationCap } from "lucide-react";
+import { ShieldCheck, Stethoscope, BookOpen, Heart } from "lucide-react";
 
 export default function Differentials() {
   const differentials = [
     {
       icon: ShieldCheck,
-      title: "Formação em anestesiologia",
-      description: "Experiência prática em ambiente hospitalar e centro cirúrgico, garantindo mais segurança nos tratamentos.",
+      title: "Formação em Anestesiologia",
+      rqe: "RQE: 86593",
+      description: "Experiência em centros cirúrgicos, hemodinâmica e diagnóstico por imagem.",
     },
     {
       icon: Stethoscope,
-      title: "Especialista em dor",
-      description: "Atendimento focado exclusivamente no diagnóstico e tratamento da dor, com abordagem clínica dedicada.",
+      title: "Especialista em Dor",
+      rqe: "RQE: 865931",
+      description: "Diagnóstico e tratamento direcionado da dor.",
     },
     {
       icon: BookOpen,
       title: "Base científica",
-      description: "Condutas baseadas em evidência, sem promessas irreais. Transparência em cada etapa do tratamento.",
+      rqe: "",
+      description: "Condutas baseadas em evidência e experiência clínica.",
     },
     {
       icon: Heart,
       title: "Atendimento humanizado",
-      description: "Escuta ativa e cuidado individual. O paciente é visto de forma completa, com respeito e acolhimento.",
-    },
-    {
-      icon: GraduationCap,
-      title: "Base técnica sólida",
-      description: "Formação em anestesiologia como base técnica para procedimentos de controle da dor com máxima segurança.",
+      rqe: "",
+      description: "Acolhimento, escuta ativa e cuidado individualizado.",
     },
   ];
 
@@ -53,7 +52,7 @@ export default function Differentials() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {differentials.map((item, index) => (
               <motion.div
                 key={index}
@@ -70,11 +69,15 @@ export default function Differentials() {
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
 
-                <h4 className="text-xl font-bold mb-4" style={{ color: "#1A1A1A" }}>
+                <h4 className="text-xl font-bold mb-1" style={{ color: "#1A1A1A" }}>
                   {item.title}
                 </h4>
 
-                <p className="leading-relaxed" style={{ color: "#3C3C3C" }}>
+                {item.rqe && (
+                  <p className="text-xs font-medium mb-3" style={{ color: "#2B7A8E" }}>{item.rqe}</p>
+                )}
+
+                <p className={`leading-relaxed ${!item.rqe ? "mt-3" : ""}`} style={{ color: "#3C3C3C" }}>
                   {item.description}
                 </p>
               </motion.div>

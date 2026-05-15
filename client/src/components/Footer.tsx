@@ -16,9 +16,9 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-base leading-relaxed mb-4" style={{ color: "#EFF5F7" }}>
-              Dra. Adriana Macari é médica anestesiologista especialista em tratamento da dor, com atuação em dor neuropática,
-              dor crônica, procedimentos intervencionistas e acompanhamento anestésico em cirurgias, oferecendo atendimento
-              baseado em evidência científica, segurança e responsabilidade médica.
+              Dra. Adriana Macari é médica anestesiologista especialista em tratamento da dor, com atuação em dores agudas e crônicas,
+              dores neuropáticas e procedimentos intervencionistas guiados por ultrassonografia.
+              Oferece atendimento baseado em evidência científica, segurança e responsabilidade médica.
             </p>
             <p className="text-sm leading-relaxed mt-3" style={{ color: "rgba(239, 245, 247, 0.7)" }}>
               Endereço a confirmar<br />
