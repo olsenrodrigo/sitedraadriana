@@ -7,7 +7,7 @@ export default function Differentials() {
       icon: ShieldCheck,
       title: "Formação em Anestesiologia",
       rqe: "RQE: 86593",
-      description: "Experiência em centros cirúrgicos, hemodinâmica e diagnóstico por imagem.",
+      description: "Experiência em centros cirúrgicos, hemodinâmica e de diagnóstico por imagem.",
     },
     {
       icon: Stethoscope,

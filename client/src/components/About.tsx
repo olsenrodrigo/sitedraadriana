@@ -41,8 +41,8 @@ export default function About() {
             </p>
 
             <p className="text-lg mb-4 leading-relaxed" style={{ color: "#3C3C3C" }}>
-              Atua no diagnóstico e tratamento de <strong>dor neuropática, lombalgia, cefaleia e dor crônica</strong>,
-              sempre com abordagem baseada em evidência científica.
+              Atua no diagnóstico e tratamento de <strong>dores agudas e crônicas</strong> — dor neuropática, lombalgia, cefaleia e dor crônica —
+              com abordagem baseada em evidência científica.
             </p>
 
             <p className="text-lg mb-4 leading-relaxed" style={{ color: "#3C3C3C" }}>

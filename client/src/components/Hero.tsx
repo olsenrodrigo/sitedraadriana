@@ -17,21 +17,31 @@ export default function Hero({ scrollToSection }: HeroProps) {
   const WHATSAPP_URL = "https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Adriana%20Macari.";
 
   return (
-    <div id="hero" className="relative min-h-screen flex items-center pt-20">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <div id="hero" className="relative min-h-screen flex items-center pt-20" style={{ background: "#1A3C4D" }}>
+
+      {/* Right side: pain illustration — visible only on md+ */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 z-0 hidden md:flex items-center justify-center overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80"
-          alt="Tratamento da dor"
-          className="w-full h-full object-cover"
+          src="https://www.ortesp.com.br/images/artigos/dor-cronica-nas-articulacoes-como-lidar-e-melhorar-a-qualidade-de-vida.jpg"
+          alt="Dor crônica nas articulações"
+          className="w-full h-auto"
+          style={{ objectFit: "contain", maxHeight: "80vh", opacity: 0.92 }}
         />
+        {/* Gradient blending left edge of image into background */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(26, 60, 77, 0.92), rgba(26, 60, 77, 0.75), rgba(43, 122, 142, 0.4))" }}
+          style={{ background: "linear-gradient(to right, #1A3C4D 0%, rgba(26,60,77,0.6) 20%, rgba(26,60,77,0.1) 50%, transparent 100%)" }}
         />
       </div>
 
+      {/* Subtle top/texture overlay */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(43,122,142,0.15) 0%, transparent 60%)" }}
+      />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
-        <div className="max-w-3xl">
+        <div className="max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
